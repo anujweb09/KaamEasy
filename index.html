@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools: image compressor, QR code generator, percentage calculator, discount calculator and text tools.">
+<meta name="theme-color" content="#090617">
+<title>Daily Tools Hub — Free Tools for Everyday</title>
+<style>
+:root{--bg:#090617;--panel:#131027;--panel2:#1a1535;--line:rgba(190,160,255,.18);--text:#f6f2ff;--muted:#b6accf;--purple:#a855f7;--pink:#ec4899;--cyan:#67e8f9;--good:#86efac}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 20% 0%,rgba(124,58,237,.18),transparent 38%),radial-gradient(ellipse at 90% 25%,rgba(219,39,119,.10),transparent 30%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:-50%;z-index:-1;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 25%,rgba(168,85,247,.09) 30%,transparent 40%,rgba(236,72,153,.07) 55%,transparent 65%);filter:blur(65px);animation:orbit 22s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 14px rgba(168,85,247,.15)}50%{box-shadow:0 0 28px rgba(168,85,247,.32)}}
+@keyframes slide{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(9,6,23,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850;letter-spacing:-.5px}
+.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--pink));box-shadow:0 0 24px #a855f744;font-size:20px}
+.brand span em{font-style:normal;color:#d8b4fe}
+.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a{text-decoration:none}.navlinks a:hover{color:white}
+.hero{text-align:center;padding:76px 0 42px;animation:slide .7s ease both}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:#ffffff06;color:#d9c9ff;font-size:12px;font-weight:700;letter-spacing:.5px}
+.pulse{width:7px;height:7px;background:var(--good);border-radius:50%;box-shadow:0 0 10px var(--good)}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.04;letter-spacing:-3px;margin:22px auto 18px;max-width:850px}
+.gradient{background:linear-gradient(90deg,#e9d5ff,#c084fc 42%,#f9a8d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:630px;margin:0 auto;color:var(--muted);font-size:17px;line-height:1.7}
+.searchbox{max-width:590px;margin:28px auto 0;display:flex;gap:10px;padding:8px;border:1px solid var(--line);border-radius:17px;background:#ffffff08}
+input,textarea,select{font:inherit;color:var(--text);background:#0d0a1d;border:1px solid var(--line);border-radius:11px;padding:12px;width:100%;outline:none}
+input:focus,textarea:focus,select:focus{border-color:#c084fc;box-shadow:0 0 0 3px #a855f71a}
+.searchbox input{border:0;background:transparent;box-shadow:none;padding:10px 12px}
+button,.btn{border:0;border-radius:11px;padding:12px 16px;background:linear-gradient(135deg,#9333ea,#c026d3);color:white;font-weight:750;cursor:pointer;transition:transform .18s,filter .18s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}button:active{transform:translateY(0)}
+.btn.secondary,button.secondary{background:#ffffff0a;border:1px solid var(--line);color:#e9ddff}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:35px 0 18px}
+.sectionhead h2{margin:0;font-size:26px;letter-spacing:-.8px}.sectionhead p{margin:6px 0 0;color:var(--muted);font-size:14px}
+.tools{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.toolcard{position:relative;overflow:hidden;text-align:left;padding:20px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#19142fdd,#100d20ee);min-height:185px;cursor:pointer;transition:transform .22s,border-color .22s,background .22s}
+.toolcard:before{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:var(--accent,#a855f7);filter:blur(75px);opacity:.16;right:-35px;top:-45px;pointer-events:none}
+.toolcard:hover,.toolcard.active{transform:translateY(-5px);border-color:#c084fc88;background:linear-gradient(145deg,#21183e,#120d25)}
+.toolicon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#a855f71c;border:1px solid #c084fc28;font-size:23px;margin-bottom:18px}
+.toolcard h3{font-size:16px;margin:0 0 7px}.toolcard p{font-size:13px;line-height:1.5;color:var(--muted);margin:0}
+.tag{display:inline-block;margin-top:14px;font-size:10px;color:#d8b4fe;background:#a855f71a;border:1px solid #a855f733;padding:5px 8px;border-radius:999px}
+.workspace{margin:28px 0 65px;border:1px solid #c084fc33;border-radius:24px;background:linear-gradient(140deg,#17112eec,#0e0a1dee);box-shadow:0 20px 70px #0004;overflow:hidden;animation:glow 6s ease-in-out infinite}
+.worktop{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.worktop h2{margin:0;font-size:20px}.worktop p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.workbody{padding:24px;min-height:250px}.toolpane{display:none;animation:slide .3s ease}.toolpane.active{display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}.field{display:grid;gap:8px;margin-bottom:15px}.field label{font-size:13px;color:#ded3f4;font-weight:650}
+.dropzone{border:1px dashed #b69af766;border-radius:17px;padding:28px 16px;text-align:center;background:#ffffff04;cursor:pointer}.dropzone:hover{border-color:#d8b4fe;background:#a855f70b}
+.dropzone .big{font-size:30px;margin-bottom:8px}.dropzone p{margin:7px 0;color:var(--muted);font-size:13px}
+.preview{max-width:100%;max-height:230px;object-fit:contain;border-radius:12px;margin-top:12px}
+.result{padding:15px;border:1px solid var(--line);background:#ffffff06;border-radius:14px;margin-top:14px;line-height:1.6;overflow-wrap:anywhere}
+.result strong{color:#e9d5ff}.hint{color:var(--muted);font-size:12px;line-height:1.6}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.output{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;border:1px solid var(--line);border-radius:16px;padding:18px;background:#09061766;text-align:center}
+.output canvas,.output img{max-width:100%;height:auto;border-radius:8px}
+.statrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stat{flex:1;min-width:110px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#ffffff05}.stat small{display:block;color:var(--muted);font-size:11px}.stat b{font-size:18px}
+footer{border-top:1px solid var(--line);padding:26px 0 36px;color:var(--muted);font-size:13px}.footrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.notice{padding:12px 14px;border:1px solid #67e8f933;background:#67e8f90a;border-radius:12px;color:#c8f8ff;font-size:12px;line-height:1.6;margin-bottom:16px}
+.empty{color:var(--muted);text-align:center;padding:30px 10px}
+@media(max-width:850px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}.hero{padding-top:58px}}
+@media(max-width:560px){.nav{height:62px}.navlinks a:not(:last-child){display:none}.brand{font-size:14px}.logo{width:34px;height:34px}h1{letter-spacing:-1.8px}.hero p{font-size:15px}.searchbox{margin-top:22px}.tools{gap:10px}.toolcard{padding:15px;min-height:175px;border-radius:16px}.toolicon{width:40px;height:40px;margin-bottom:13px}.toolcard h3{font-size:14px}.toolcard p{font-size:12px}.worktop{padding:17px}.workbody{padding:16px}.two{grid-template-columns:1fr}.sectionhead h2{font-size:22px}.hero{padding-bottom:25px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><span class="logo">✦</span><span>Daily <em>Tools</em> Hub</span></a>
+  <nav class="navlinks"><a href="#tools">Explore tools</a><a href="#workspace">Workspace</a><a href="#about">About</a></nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div class="pill"><span class="pulse"></span> FREE TOOLS · NO SIGN-UP</div>
+    <h1>Small tasks.<br><span class="gradient">Big time saved.</span></h1>
+    <p>Simple, useful tools for everyday work. Compress images, create QR codes, calculate percentages and clean up text — all in one place.</p>
+    <div class="searchbox"><input id="search" type="search" placeholder="Search a tool..." aria-label="Search tools"><button id="searchBtn">Find tool ↗</button></div>
+  </section>
+
+  <section id="tools">
+    <div class="sectionhead"><div><h2>Explore tools</h2><p>Pick a tool and get things done.</p></div><span class="hint">4 tool categories</span></div>
+    <div class="tools" id="toolCards">
+      <button class="toolcard active" data-tool="image" style="--accent:#a855f7"><span class="toolicon">🖼️</span><h3>Image Compressor</h3><p>Reduce image file size right in your browser.</p><span class="tag">IMAGE TOOLS</span></button>
+      <button class="toolcard" data-tool="qr" style="--accent:#ec4899"><span class="toolicon">▦</span><h3>QR Code Generator</h3><p>Turn a link or message into a downloadable QR.</p><span class="tag">GENERATORS</span></button>
+      <button class="toolcard" data-tool="calc" style="--accent:#67e8f9"><span class="toolicon">％</span><h3>Percentage Calculator</h3><p>Calculate marks percentage and a discount price.</p><span class="tag">CALCULATORS</span></button>
+      <button class="toolcard" data-tool="text" style="--accent:#f9a8d4"><span class="toolicon">Aa</span><h3>Text Tools</h3><p>Count words, count characters and change text case.</p><span class="tag">TEXT TOOLS</span></button>
+    </div>
+  </section>
+
+  <section id="workspace" class="workspace">
+    <div class="worktop"><div><h2 id="workspaceTitle">🖼️ Image Compressor</h2><p id="workspaceSubtitle">Compress an image without uploading it to a server.</p></div><span class="pill">READY TO USE</span></div>
+    <div class="workbody">
+      <div class="toolpane active" id="pane-image">
+        <div class="notice">Privacy-friendly: your image is processed in this browser and is not uploaded by this tool. JPEG/WebP compression works best with photos. PNG output may not always be smaller.</div>
+        <div class="two">
+          <div>
+            <div class="field"><label for="imageFile">Choose an image</label><div class="dropzone" id="dropzone"><div class="big">⬆️</div><strong>Click to choose or drop an image</strong><p>JPG, PNG, WebP · up to 15 MB recommended</p><input type="file" id="imageFile" accept="image/*" hidden></div></div>
+            <div class="field"><label for="quality">Compression quality <span id="qualityLabel">70%</span></label><input id="quality" type="range" min="20" max="95" value="70"></div>
+            <div class="field"><label for="imgFormat">Output format</label><select id="imgFormat"><option value="image/jpeg">JPEG — smaller photos</option><option value="image/webp">WebP — modern format</option><option value="image/png">PNG — may be larger</option></select></div>
+            <button id="compressBtn">Compress image ✨</button>
+            <div id="imageMessage" class="hint" aria-live="polite" style="margin-top:10px"></div>
+          </div>
+          <div class="output" id="imageOutput"><div class="empty">Your compressed image will appear here.</div></div>
+        </div>
+      </div>
+
+      <div class="toolpane" id="pane-qr">
+        <div class="notice">QR generation uses a small open-source library loaded from a CDN, so this tool needs an internet connection. Do not put private or sensitive information into a QR code.</div>
+        <div class="two">
+          <div>
+            <div class="field"><label for="qrText">Website URL or text</label><textarea id="qrText" rows="4" placeholder="https://example.com or write a message"></textarea></div>
+            <div class="field"><label for="qrSize">QR size</label><select id="qrSize"><option value="180">180 × 180</option><option value="240" selected>240 × 240</option><option value="320">320 × 320</option></select></div>
+            <button id="makeQr">Generate QR code ✨</button>
+            <div id="qrMessage" class="hint" style="margin-top:10px" aria-live="polite"></div>
+          </div>
+          <div class="output" id="qrOutput"><div class="empty">Your QR code will appear here.</div></div>
+        </div>
+      </div>
+
+      <div class="toolpane" id="pane-calc">
+        <div class="two">
+          <div>
+            <h3>📘 Marks percentage</h3>
+            <p class="hint">Enter the marks you scored and the maximum possible marks.</p>
+            <div class="field"><label for="marks">Marks obtained</label><input id="marks" type="number" min="0" step="any" placeholder="e.g. 425"></div>
+            <div class="field"><label for="totalMarks">Total marks</label><input id="totalMarks" type="number" min="0.000001" step="any" placeholder="e.g. 500"></div>
+            <button id="marksBtn">Calculate percentage</button><div class="result" id="marksResult" aria-live="polite">Your result will appear here.</div>
+          </div>
+          <div>
+            <h3>🏷️ Discount calculator</h3>
+            <p class="hint">Find the final price after a discount.</p>
+            <div class="field"><label for="price">Original price (₹ or any currency)</label><input id="price" type="number" min="0" step="any" placeholder="e.g. 1999"></div>
+            <div class="field"><label for="discount">Discount (%)</label><input id="discount" type="number" min="0" max="100" step="any" placeholder="e.g. 20"></div>
+            <button id="discountBtn">Calculate discount</button><div class="result" id="discountResult" aria-live="polite">Your result will appear here.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolpane" id="pane-text">
+        <div class="field"><label for="textInput">Enter or paste your text</label><textarea id="textInput" rows="7" placeholder="Start typing or paste text here..."></textarea></div>
+        <div class="statrow">
+          <div class="stat"><small>Words</small><b id="wordCount">0</b></div><div class="stat"><small>Characters</small><b id="charCount">0</b></div><div class="stat"><small>Without spaces</small><b id="noSpaceCount">0</b></div><div class="stat"><small>Sentences (approx.)</small><b id="sentenceCount">0</b></div>
+        </div>
+        <div class="actions"><button id="upperBtn">UPPERCASE</button><button id="lowerBtn" class="secondary">lowercase</button><button id="titleBtn" class="secondary">Title Case</button><button id="copyTextBtn" class="secondary">Copy text</button><button id="clearTextBtn" class="secondary">Clear</button></div>
+        <p class="hint" id="textMessage" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+  <section id="about" style="padding:0 0 50px">
+    <div class="sectionhead"><div><h2>Useful by design</h2><p>Quick, straightforward tools for your everyday workflow.</p></div></div>
+    <div class="two"><div class="result"><strong>🔒 Browser-first processing</strong><br><span class="hint">Image compression happens on your device. No account is required.</span></div><div class="result"><strong>📱 Made for mobile, too</strong><br><span class="hint">Responsive layout works on phones, tablets and laptops.</span></div></div>
+  </section>
+</main>
+<footer><div class="wrap footrow"><span>© <span id="year"></span> Daily Tools Hub</span><span>Free everyday tools · Built to save time</span></div></footer>
+<script>
+const $ = id => document.getElementById(id);
+const toolInfo = {
+ image:{title:"🖼️ Image Compressor",subtitle:"Compress an image without uploading it to a server."},
+ qr:{title:"▦ QR Code Generator",subtitle:"Turn a website link or text into a QR code."},
+ calc:{title:"％ Percentage & Discount Calculator",subtitle:"Calculate marks percentages and discounted prices."},
+ text:{title:"Aa Text Tools",subtitle:"Count words and transform text in seconds."}
+};
+function selectTool(name, scroll=true){
+ document.querySelectorAll(".toolcard").forEach(c=>c.classList.toggle("active",c.dataset.tool===name));
+ document.querySelectorAll(".toolpane").forEach(p=>p.classList.toggle("active",p.id==="pane-"+name));
+ $("workspaceTitle").textContent=toolInfo[name].title;
+ $("workspaceSubtitle").textContent=toolInfo[name].subtitle;
+ if(scroll && window.innerWidth<700) $("workspace").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".toolcard").forEach(c=>c.addEventListener("click",()=>selectTool(c.dataset.tool)));
+function searchTool(){
+ const q=$("search").value.trim().toLowerCase();
+ const matches=[...document.querySelectorAll(".toolcard")].filter(c=>(c.innerText+" "+c.dataset.tool).toLowerCase().includes(q));
+ document.querySelectorAll(".toolcard").forEach(c=>c.style.display=(!q||matches.includes(c))?"":"none");
+ if(matches.length===1) selectTool(matches[0].dataset.tool);
+ else if(q && matches.length===0) alert("No matching tool found. Try image, QR, calculator or text.");
+ $("tools").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("searchBtn").addEventListener("click",searchTool);
+$("search").addEventListener("keydown",e=>{if(e.key==="Enter")searchTool()});
+$("year").textContent=new Date().getFullYear();
+
+// Image compressor
+let sourceImage=null, sourceFileName="image";
+$("dropzone").addEventListener("click",()=>$("imageFile").click());
+$("imageFile").addEventListener("change",e=>loadImage(e.target.files[0]));
+$("dropzone").addEventListener("dragover",e=>{e.preventDefault();$("dropzone").style.borderColor="#d8b4fe"});
+$("dropzone").addEventListener("dragleave",()=>{$("dropzone").style.borderColor=""});
+$("dropzone").addEventListener("drop",e=>{e.preventDefault();$("dropzone").style.borderColor="";loadImage(e.dataTransfer.files[0])});
+function loadImage(file){
+ if(!file)return;
+ if(!file.type.startsWith("image/")){$("imageMessage").textContent="Please choose a valid image file.";return}
+ if(file.size>30*1024*1024){$("imageMessage").textContent="This file is over 30 MB. Please choose a smaller image.";return}
+ const url=URL.createObjectURL(file), img=new Image();
+ img.onload=()=>{sourceImage=img;sourceFileName=(file.name||"image").replace(/\.[^.]+$/,"");$("imageMessage").textContent=`Loaded ${img.naturalWidth} × ${img.naturalHeight} image (${formatBytes(file.size)}).`; $("imageOutput").innerHTML=`<div><strong>Original preview</strong><br><img class="preview" src="${url}" alt="Original image preview"><p class="hint">${img.naturalWidth} × ${img.naturalHeight}</p></div>`;};
+ img.onerror=()=>{$("imageMessage").textContent="Could not read this image. Try another file.";URL.revokeObjectURL(url)};
+ img.src=url;
+}
+$("quality").addEventListener("input",()=>{$("qualityLabel").textContent=$("quality").value+"%"});
+function formatBytes(n){if(!Number.isFinite(n))return "—";if(n<1024)return n+" B";const units=["KB","MB","GB"];let i=-1;do{n/=1024;i++}while(n>=1024&&i<units.length-1);return n.toFixed(2)+" "+units[i]}
+$("compressBtn").addEventListener("click",()=>{
+ if(!sourceImage){$("imageMessage").textContent="Choose an image first.";return}
+ const format=$("imgFormat").value, quality=Number($("quality").value)/100;
+ const canvas=document.createElement("canvas");canvas.width=sourceImage.naturalWidth;canvas.height=sourceImage.naturalHeight;
+ const ctx=canvas.getContext("2d");
+ if(format==="image/jpeg"){ctx.fillStyle="#fff";ctx.fillRect(0,0,canvas.width,canvas.height)}
+ ctx.drawImage(sourceImage,0,0);
+ canvas.toBlob(blob=>{
+  if(!blob){$("imageMessage").textContent="This format could not be created by your browser. Try JPEG or WebP.";return}
+  const url=URL.createObjectURL(blob), old=Number(($("imageMessage").dataset.oldSize)||0);
+  const ext=format==="image/jpeg"?"jpg":format==="image/webp"?"webp":"png";
+  $("imageOutput").innerHTML=`<div><strong>Compressed result</strong><br><img class="preview" src="${url}" alt="Compressed image preview"><div class="statrow"><div class="stat"><small>Output size</small><b>${formatBytes(blob.size)}</b></div><div class="stat"><small>Format</small><b>${ext.toUpperCase()}</b></div></div><a class="btn" style="margin-top:14px" href="${url}" download="${sourceFileName}-compressed.${ext}">⬇ Download image</a></div>`;
+  $("imageMessage").textContent="Compression complete. If the file is not smaller, try WebP or adjust quality.";
+ },format,quality);
+});
+
+// QR generator (external library)
+let qrScriptLoading=false, qrLoaded=false;
+function loadQrLibrary(callback){
+ if(window.QRCode){callback();return}
+ if(qrScriptLoading){const check=setInterval(()=>{if(window.QRCode){clearInterval(check);callback()}},150);setTimeout(()=>clearInterval(check),10000);return}
+ qrScriptLoading=true;
+ const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+ s.onload=()=>{qrLoaded=true;qrScriptLoading=false;callback()};
+ s.onerror=()=>{qrScriptLoading=false;$("qrMessage").textContent="Could not load the QR library. Check your internet connection and try again."};
+ document.head.appendChild(s);
+}
+$("makeQr").addEventListener("click",()=>{
+ const text=$("qrText").value.trim();if(!text){$("qrMessage").textContent="Enter a URL or text first.";return}
+ $("qrMessage").textContent="Generating QR code…";
+ loadQrLibrary(()=>{
+  $("qrOutput").innerHTML="";
+  const holder=document.createElement("div");holder.id="qrCanvasHolder";$("qrOutput").appendChild(holder);
+  try{
+   new QRCode(holder,{text,width:Number($("qrSize").value),height:Number($("qrSize").value),colorDark:"#090617",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+   setTimeout(()=>{
+    const canvas=holder.querySelector("canvas"),img=holder.querySelector("img");
+    let data=canvas?canvas.toDataURL("image/png"):(img?img.src:null);
+    if(!data){$("qrMessage").textContent="QR code could not be created. Try shorter text.";return}
+    $("qrOutput").innerHTML=`<div><strong>Your QR code</strong><div id="qrFinalImage" style="margin:14px auto"></div><a id="downloadQr" class="btn" download="daily-tools-hub-qr.png">⬇ Download QR PNG</a></div>`;
+    const finalImg=document.createElement("img");finalImg.src=data;finalImg.alt="Generated QR code";finalImg.style.width=Number($("qrSize").value)+"px";finalImg.style.maxWidth="100%";$("qrFinalImage").appendChild(finalImg);$("downloadQr").href=data;
+    $("qrMessage").textContent="QR code ready. Scan it with a phone camera to test it.";
+   },100);
+  }catch(e){$("qrMessage").textContent="QR generation failed. Try shorter text."}
+ });
+});
+
+// Calculators
+$("marksBtn").addEventListener("click",()=>{
+ const m=Number($("marks").value),t=Number($("totalMarks").value);
+ if($("marks").value===""||$("totalMarks").value===""||!Number.isFinite(m)||!Number.isFinite(t)||m<0||t<=0||m>t){$("marksResult").innerHTML="Enter valid marks. Obtained marks must be between 0 and total marks.";return}
+ const p=m/t*100;$("marksResult").innerHTML=`<strong>${p.toFixed(2)}%</strong><br>You scored ${m} out of ${t} marks.`;
+});
+$("discountBtn").addEventListener("click",()=>{
+ const p=Number($("price").value),d=Number($("discount").value);
+ if($("price").value===""||$("discount").value===""||!Number.isFinite(p)||!Number.isFinite(d)||p<0||d<0||d>100){$("discountResult").innerHTML="Enter a price of 0 or more and a discount from 0% to 100%.";return}
+ const saved=p*d/100,final=p-saved;
+ $("discountResult").innerHTML=`Final price: <strong>${final.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}</strong><br>You save ${saved.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})} (${d}%).`;
+});
+
+// Text tools
+function updateTextStats(){
+ const t=$("textInput").value,trim=t.trim(),words=trim?trim.split(/\s+/u).length:0,sentences=trim?((trim.match(/[.!?]+(?=\s|$)/g)||[]).length||1):0;
+ $("wordCount").textContent=words;$("charCount").textContent=t.length;$("noSpaceCount").textContent=t.replace(/\s/g,"").length;$("sentenceCount").textContent=sentences;
+}
+$("textInput").addEventListener("input",updateTextStats);
+$("upperBtn").addEventListener("click",()=>{$("textInput").value=$("textInput").value.toUpperCase();updateTextStats()});
+$("lowerBtn").addEventListener("click",()=>{$("textInput").value=$("textInput").value.toLowerCase();updateTextStats()});
+$("titleBtn").addEventListener("click",()=>{$("textInput").value=$("textInput").value.toLowerCase().replace(/(^|[\s([{])(\p{L})/gu,(m,a,b)=>a+b.toUpperCase());updateTextStats()});
+$("clearTextBtn").addEventListener("click",()=>{$("textInput").value="";updateTextStats();$("textMessage").textContent="Text cleared."});
+$("copyTextBtn").addEventListener("click",async()=>{
+ try{await navigator.clipboard.writeText($("textInput").value);$("textMessage").textContent="Text copied to clipboard."}
+ catch(e){$("textInput").select();const ok=document.execCommand("copy");$("textMessage").textContent=ok?"Text copied to clipboard.":"Copy was blocked by the browser; select and copy the text manually."}
+});
+</script>
+</body>
+</html>
